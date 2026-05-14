@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My First GitHub Project</title>
+    <style>
+      :root {
+        --bg: #f7f1e8;
+        --paper: rgba(255, 252, 247, 0.86);
+        --ink: #1d1d1f;
+        --muted: #5b5b66;
+        --accent: #0f766e;
+        --accent-soft: #d8efe9;
+        --line: rgba(29, 29, 31, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Avenir Next", "PingFang SC", "Microsoft YaHei", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(15, 118, 110, 0.12), transparent 35%),
+          radial-gradient(circle at bottom right, rgba(217, 119, 6, 0.14), transparent 28%),
+          linear-gradient(135deg, #f6efe4, #f7f1e8 42%, #eef7f5);
+      }
+
+      .page {
+        width: min(960px, calc(100% - 32px));
+        margin: 32px auto;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: var(--paper);
+        backdrop-filter: blur(8px);
+        box-shadow: 0 24px 60px rgba(29, 29, 31, 0.08);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 24px;
+        align-items: center;
+      }
+
+      .avatar {
+        width: 120px;
+        aspect-ratio: 1;
+        border-radius: 24px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, #0f766e, #f59e0b);
+        color: #fff;
+        font-size: 40px;
+        font-weight: 700;
+      }
+
+      h1,
+      h2,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: clamp(32px, 5vw, 56px);
+        line-height: 1;
+      }
+
+      .subtitle {
+        margin-top: 10px;
+        font-size: 18px;
+        color: var(--muted);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 28px;
+      }
+
+      .panel {
+        padding: 18px;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.76);
+      }
+
+      .panel h2 {
+        margin-bottom: 12px;
+        font-size: 18px;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .intro {
+        margin-top: 28px;
+        padding: 20px;
+        border-radius: 16px;
+        background: var(--accent-soft);
+      }
+
+      .intro p {
+        line-height: 1.8;
+      }
+
+      .footer {
+        margin-top: 28px;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      @media (max-width: 720px) {
+        .page {
+          padding: 18px;
+          margin: 16px auto;
+        }
+
+        .hero,
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .avatar {
+          width: 96px;
+          font-size: 32px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div class="avatar">HY</div>
+        <div>
+          <h1>Hello, I'm Hyanvie</h1>
+          <p class="subtitle">CS Student | Sophomore | Learning Java and Building Step by Step</p>
+        </div>
+      </section>
+
+      <section class="intro">
+        <p>
+          你好，我是一名计算机相关专业的大二学生，主学习语言是 Java。
+          这是我的第一个 GitHub 项目，我会在这里介绍自己，记录学习过程，并逐步上传练习代码和小项目。
+        </p>
+      </section>
+
+      <section class="grid">
+        <article class="panel">
+          <h2>About Me</h2>
+          <ul>
+            <li>学校/专业：计算机相关专业在读</li>
+            <li>年级：大二</li>
+            <li>主学习语言：Java</li>
+            <li>兴趣方向：后端开发 / AI / 算法基础</li>
+            <li>目标：持续学习，持续输出，慢慢做出自己的作品</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h2>Learning Now</h2>
+          <ul>
+            <li>Java</li>
+            <li>Data Structure</li>
+            <li>Algorithm</li>
+            <li>Git & GitHub</li>
+            <li>Python</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h2>Projects</h2>
+          <ul>
+            <li>Java 课程项目：待更新</li>
+            <li>数据结构练习：待更新</li>
+            <li>小型网页练习：待更新</li>
+            <li>以后会链接到其他独立仓库</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h2>Contact</h2>
+          <ul>
+            <li>GitHub：Hyanvie</li>
+            <li>Email：hyanvie@163.com</li>
+            <li>Email：hyanvie@gmail.com</li>
+            <li>Motto：Keep learning, keep building.</li>
+          </ul>
+        </article>
+      </section>
+
+      <footer class="footer">
+        My first GitHub repository. More updates are coming soon.
+      </footer>
+    </main>
+  </body>
+</html>
