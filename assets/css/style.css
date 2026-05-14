@@ -1,11 +1,13 @@
 :root {
-  --bg: #f6efe5;
-  --paper: rgba(255, 252, 247, 0.92);
+  --bg: #f7f2ea;
+  --paper: rgba(255, 252, 247, 0.93);
   --paper-strong: #fffdf9;
-  --ink: #1d1d1f;
-  --muted: #5f6470;
+  --ink: #1c1b24;
+  --muted: #626474;
   --accent: #0f766e;
-  --accent-warm: #e3a21a;
+  --accent-cool: #6d5dfc;
+  --accent-pop: #ff5c9a;
+  --accent-warm: #f2b43a;
   --line: rgba(29, 29, 31, 0.12);
   --shadow: 0 24px 60px rgba(29, 29, 31, 0.08);
 }
@@ -24,9 +26,10 @@ body {
   font-family: "Avenir Next", "PingFang SC", "Microsoft YaHei", sans-serif;
   color: var(--ink);
   background:
-    radial-gradient(circle at top left, rgba(15, 118, 110, 0.12), transparent 35%),
-    radial-gradient(circle at bottom right, rgba(227, 162, 26, 0.14), transparent 28%),
-    linear-gradient(135deg, #f7f1e8, #f6efe5 42%, #edf7f4);
+    linear-gradient(115deg, rgba(109, 93, 252, 0.14), transparent 32%),
+    radial-gradient(circle at top left, rgba(15, 118, 110, 0.16), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(255, 92, 154, 0.14), transparent 30%),
+    linear-gradient(135deg, #fbf4ec, #f7f2ea 46%, #eef8f4);
 }
 
 a {
@@ -66,7 +69,7 @@ a {
   display: grid;
   place-items: center;
   border-radius: 16px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-warm));
+  background: linear-gradient(135deg, var(--accent), var(--accent-cool) 58%, var(--accent-pop));
   color: #ffffff;
   font-size: 22px;
   font-weight: 800;
@@ -129,13 +132,29 @@ a {
 .hero-avatar {
   width: 132px;
   aspect-ratio: 1;
-  border-radius: 28px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, var(--accent), var(--accent-warm));
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 46%),
+    linear-gradient(135deg, var(--accent), var(--accent-cool) 58%, var(--accent-pop));
   color: #ffffff;
-  font-size: 44px;
   font-weight: 800;
+  box-shadow: 0 18px 40px rgba(109, 93, 252, 0.22);
+}
+
+.hero-avatar span {
+  font-size: 44px;
+  line-height: 1;
+}
+
+.hero-avatar small {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .hero-copy h1,
@@ -152,12 +171,135 @@ a {
   font-size: 20px;
 }
 
+.status-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.status-pills span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 8px 12px;
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  color: #24504d;
+  font-size: 14px;
+  font-weight: 700;
+}
+
 .intro,
 .post-summary {
   margin-top: 28px;
   padding: 20px;
   border-radius: 18px;
   background: rgba(15, 118, 110, 0.1);
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.status-card {
+  min-height: 100%;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.7)),
+    linear-gradient(135deg, rgba(15, 118, 110, 0.1), rgba(255, 92, 154, 0.08));
+}
+
+.status-card-dark {
+  background:
+    linear-gradient(135deg, rgba(18, 21, 32, 0.94), rgba(48, 39, 92, 0.9)),
+    linear-gradient(135deg, var(--accent), var(--accent-pop));
+  color: #ffffff;
+}
+
+.card-kicker {
+  margin: 0 0 8px;
+  color: var(--accent-pop);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.status-card-dark .card-kicker {
+  color: #ffb6d4;
+}
+
+.status-card h2 {
+  margin: 0 0 12px;
+  font-size: 26px;
+}
+
+.status-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.status-card-dark p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.console-line {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 18px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.24);
+  color: #ddfff6;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.prompt {
+  color: #ffd166;
+  font-weight: 800;
+}
+
+.task-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.task-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(29, 29, 31, 0.08);
+}
+
+.task-list li:last-child {
+  border-bottom: 0;
+}
+
+.task-list span {
+  color: var(--muted);
+}
+
+.task-list strong {
+  color: var(--ink);
+  font-size: 14px;
+  text-align: right;
 }
 
 .intro p,
@@ -247,6 +389,66 @@ a {
   line-height: 1.9;
 }
 
+.check-list,
+.spark-list,
+.progress-list {
+  list-style: none;
+  padding-left: 0 !important;
+}
+
+.check-list li,
+.spark-list li {
+  position: relative;
+  padding-left: 28px;
+}
+
+.check-list li::before,
+.spark-list li::before {
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 900;
+}
+
+.check-list li::before {
+  content: "+";
+}
+
+.spark-list li::before {
+  content: "#";
+  color: var(--accent-pop);
+}
+
+.progress-list {
+  display: grid;
+  gap: 14px;
+  color: var(--ink) !important;
+}
+
+.progress-list li {
+  display: grid;
+  gap: 8px;
+}
+
+.progress-list li > span {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.progress {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(29, 29, 31, 0.08);
+  overflow: hidden;
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent), var(--accent-cool), var(--accent-pop));
+}
+
 .post-list {
   display: grid;
   gap: 16px;
@@ -321,13 +523,21 @@ code {
   }
 
   .hero,
+  .dashboard,
   .grid {
     grid-template-columns: 1fr;
   }
 
   .hero-avatar {
     width: 104px;
+  }
+
+  .hero-avatar span {
     font-size: 34px;
+  }
+
+  .hero-avatar small {
+    font-size: 10px;
   }
 
   .hero-subtitle {

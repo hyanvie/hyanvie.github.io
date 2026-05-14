@@ -9,11 +9,22 @@ permalink: /about/
   <h1 class="page-title">关于我</h1>
   <p class="page-lead">
     Hyanvie，一名计算机相关专业的大二学生，主学习语言是 Java。
-    这个站点主要用来记录学习过程、整理笔记，也会逐步链接我的项目和课程实践。
+    这个站点主要用来记录学习过程、整理笔记、同步课程进度，也会逐步链接我的项目和课程实践。
+    最近的状态是：继续打 Java 基础、推进数据结构和算法，同时备考英语六级。
   </p>
 </section>
 
 <section class="page-stack">
+  <div class="page-block">
+    <h2>学习档案</h2>
+    <ul>
+      <li>已学习：Java 程序设计基础、Python 入门、Git 与 GitHub、计算机基础</li>
+      <li>在读：数据结构、算法基础、Java 面向对象进阶、Web 后端开发基础</li>
+      <li>备考：英语六级，重点练习听力、阅读、写作和翻译</li>
+      <li>当前节奏：上课吸收、课后整理、用小项目检验理解</li>
+    </ul>
+  </div>
+
   <div class="page-block">
     <h2>目前关注的方向</h2>
     <ul>
@@ -21,6 +32,7 @@ permalink: /about/
       <li>数据结构与算法</li>
       <li>后端开发</li>
       <li>Git 与项目协作</li>
+      <li>英语六级备考与学习效率管理</li>
     </ul>
   </div>
 
