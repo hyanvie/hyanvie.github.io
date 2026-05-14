@@ -29,6 +29,11 @@
 - 学习笔记
 - 小型课程项目
 
+## Notes
+
+- [Java JDK 选型与 JDK 8 / JDK 17 区别](./notes/java-jdk.md)
+- [Git 学习笔记](./notes/git.md)
+
 ## Projects
 
 后续完成的小型课程项目，我会放在 GitHub 的其他独立仓库中，再从这里统一整理和链接，作为个人项目导航页。
