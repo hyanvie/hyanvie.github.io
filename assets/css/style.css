@@ -171,6 +171,34 @@ a {
   font-size: 20px;
 }
 
+.honor-title {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 92, 154, 0.28);
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.58)),
+    linear-gradient(135deg, rgba(109, 93, 252, 0.16), rgba(255, 92, 154, 0.14));
+  box-shadow: 0 14px 34px rgba(109, 93, 252, 0.12);
+}
+
+.honor-title span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.honor-title strong {
+  color: #71325a;
+  font-size: 22px;
+  line-height: 1.1;
+}
+
 .status-pills {
   display: flex;
   flex-wrap: wrap;
