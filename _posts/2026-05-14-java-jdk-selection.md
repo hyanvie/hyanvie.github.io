@@ -6,6 +6,7 @@ categories:
   - Java
   - 基础
 summary: 这篇笔记主要整理 JDK 是什么、JDK 8 和 JDK 17 有什么区别，以及学习阶段应该如何做版本选择。
+description: 这篇笔记主要整理 JDK 是什么、JDK 8 和 JDK 17 有什么区别，以及学习阶段应该如何做版本选择。
 source_note: /notes/java-jdk.md
 ---
 

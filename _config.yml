@@ -6,6 +6,10 @@ lang: zh-CN
 timezone: Asia/Shanghai
 permalink: /blog/:title/
 markdown: kramdown
+exclude:
+  - README.md
+  - exercises
+  - _site
 kramdown:
   input: GFM
 plugins:
