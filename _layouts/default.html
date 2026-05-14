@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'zh-CN' }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% if page.title and page.title != site.title %}
+        {{ page.title }} | {{ site.title }}
+      {% else %}
+        {{ site.title }}
+      {% endif %}
+    </title>
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}" />
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+    {%- feed_meta -%}
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="{{ '/' | relative_url }}">
+          <span class="brand-mark">HY</span>
+          <span class="brand-text">
+            <strong>Hyanvie</strong>
+            <small>Java Learning Notes</small>
+          </span>
+        </a>
+
+        <nav class="site-nav">
+          <a href="{{ '/' | relative_url }}">首页</a>
+          <a href="{{ '/blog/' | relative_url }}">博客</a>
+          <a href="{{ '/projects/' | relative_url }}">项目</a>
+          <a href="{{ '/about/' | relative_url }}">关于</a>
+          <a href="{{ '/' | relative_url }}#contact">联系</a>
+        </nav>
+      </header>
+
+      <main class="site-main">
+        {{ content }}
+      </main>
+
+      <footer class="site-footer">
+        <p>Hyanvie's GitHub Pages site</p>
+      </footer>
+    </div>
+  </body>
+</html>

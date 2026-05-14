@@ -1,0 +1,34 @@
+---
+layout: default
+title: 博客
+---
+<section>
+  <p class="eyebrow">Blog</p>
+  <h1 class="page-title">学习笔记与文章</h1>
+  <p class="page-lead">
+    这里会持续整理 Java 学习笔记、基础知识总结，以及后续做项目时遇到的经验记录。
+  </p>
+</section>
+
+<section class="post-list">
+  {% for post in site.posts %}
+    <article class="post-card">
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <p class="meta-row">
+        <span>{{ post.date | date: "%Y-%m-%d" }}</span>
+        {% if post.categories and post.categories.size > 0 %}
+          <span>分类：{{ post.categories | join: " / " }}</span>
+        {% endif %}
+      </p>
+      {% if post.summary %}
+        <p>{{ post.summary }}</p>
+      {% endif %}
+      <div class="actions">
+        <a class="button primary" href="{{ post.url | relative_url }}">阅读全文</a>
+        {% if post.source_note %}
+          <a class="button" href="{{ post.source_note | relative_url }}">查看原始笔记</a>
+        {% endif %}
+      </div>
+    </article>
+  {% endfor %}
+</section>

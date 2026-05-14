@@ -1,0 +1,12 @@
+title: Hyanvie
+description: Hyanvie's personal site and Java learning notes
+baseurl: ""
+url: "https://hyanvie.github.io"
+lang: zh-CN
+timezone: Asia/Shanghai
+permalink: /blog/:title/
+markdown: kramdown
+kramdown:
+  input: GFM
+plugins:
+  - jekyll-feed

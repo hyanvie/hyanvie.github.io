@@ -1,314 +1,84 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My First GitHub Project</title>
-    <style>
-      :root {
-        --bg: #f7f1e8;
-        --paper: rgba(255, 252, 247, 0.86);
-        --ink: #1d1d1f;
-        --muted: #5b5b66;
-        --accent: #0f766e;
-        --accent-soft: #d8efe9;
-        --line: rgba(29, 29, 31, 0.12);
-      }
+---
+layout: default
+title: 首页
+---
+{% assign latest = site.posts.first %}
 
-      * {
-        box-sizing: border-box;
-      }
+<section class="hero">
+  <div class="hero-avatar">HY</div>
+  <div class="hero-copy">
+    <h1>Hello, I'm Hyanvie</h1>
+    <p class="hero-subtitle">CS Student | Sophomore | Learning Java and Building Step by Step</p>
+  </div>
+</section>
 
-      body {
-        margin: 0;
-        min-height: 100vh;
-        font-family: "Avenir Next", "PingFang SC", "Microsoft YaHei", sans-serif;
-        color: var(--ink);
-        background:
-          radial-gradient(circle at top left, rgba(15, 118, 110, 0.12), transparent 35%),
-          radial-gradient(circle at bottom right, rgba(217, 119, 6, 0.14), transparent 28%),
-          linear-gradient(135deg, #f6efe4, #f7f1e8 42%, #eef7f5);
-      }
+<section class="intro">
+  <p>
+    你好，我是一名计算机相关专业的大二学生，主学习语言是 Java。
+    这里是我的 GitHub Pages 主页，我会在这里记录学习过程、整理笔记，并逐步链接自己的课程项目和小作品。
+  </p>
+</section>
 
-      .page {
-        width: min(960px, calc(100% - 32px));
-        margin: 32px auto;
-        padding: 24px;
-        border: 1px solid var(--line);
-        border-radius: 20px;
-        background: var(--paper);
-        backdrop-filter: blur(8px);
-        box-shadow: 0 24px 60px rgba(29, 29, 31, 0.08);
-      }
+{% if latest %}
+  <p class="section-label">Latest Post</p>
+  <section class="feature-post">
+    <h2>{{ latest.title }}</h2>
+    <p>{{ latest.summary }}</p>
+    <p class="meta-row">
+      <span>{{ latest.date | date: "%Y-%m-%d" }}</span>
+      {% if latest.categories and latest.categories.size > 0 %}
+        <span>分类：{{ latest.categories | join: " / " }}</span>
+      {% endif %}
+    </p>
+    <div class="actions">
+      <a class="button primary" href="{{ latest.url | relative_url }}">阅读全文</a>
+      {% if latest.source_note %}
+        <a class="button" href="{{ latest.source_note | relative_url }}">查看原始笔记</a>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}
 
-      .nav {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 28px;
-      }
+<section class="grid">
+  <article class="card">
+    <h2>About Me</h2>
+    <ul>
+      <li>学校/专业：计算机相关专业在读</li>
+      <li>年级：大二</li>
+      <li>主学习语言：Java</li>
+      <li>兴趣方向：后端开发 / AI / 算法基础</li>
+      <li>目标：持续学习，持续输出，慢慢做出自己的作品</li>
+    </ul>
+  </article>
 
-      .nav a {
-        padding: 10px 14px;
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.68);
-        color: var(--ink);
-        text-decoration: none;
-        font-size: 14px;
-      }
+  <article class="card">
+    <h2>Learning Now</h2>
+    <ul>
+      <li>Java</li>
+      <li>Data Structure</li>
+      <li>Algorithm</li>
+      <li>Git & GitHub</li>
+      <li>Python</li>
+    </ul>
+  </article>
 
-      .nav a:hover {
-        background: #ffffff;
-      }
+  <article class="card">
+    <h2>Site Sections</h2>
+    <ul>
+      <li>博客：整理 Java 和其他学习笔记</li>
+      <li>项目：以后统一链接独立仓库</li>
+      <li>关于：集中放自我介绍和更新方向</li>
+      <li>主页：展示最近内容和常用入口</li>
+    </ul>
+  </article>
 
-      .hero {
-        display: grid;
-        grid-template-columns: 120px 1fr;
-        gap: 24px;
-        align-items: center;
-      }
-
-      .avatar {
-        width: 120px;
-        aspect-ratio: 1;
-        border-radius: 24px;
-        display: grid;
-        place-items: center;
-        background: linear-gradient(135deg, #0f766e, #f59e0b);
-        color: #fff;
-        font-size: 40px;
-        font-weight: 700;
-      }
-
-      h1,
-      h2,
-      p {
-        margin: 0;
-      }
-
-      h1 {
-        font-size: clamp(32px, 5vw, 56px);
-        line-height: 1;
-      }
-
-      .subtitle {
-        margin-top: 10px;
-        font-size: 18px;
-        color: var(--muted);
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
-        margin-top: 28px;
-      }
-
-      .section-title {
-        margin-top: 32px;
-        font-size: 14px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--muted);
-      }
-
-      .panel {
-        padding: 18px;
-        border-radius: 16px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.76);
-      }
-
-      .panel h2 {
-        margin-bottom: 12px;
-        font-size: 18px;
-      }
-
-      ul {
-        margin: 0;
-        padding-left: 18px;
-        color: var(--muted);
-        line-height: 1.8;
-      }
-
-      .intro {
-        margin-top: 28px;
-        padding: 20px;
-        border-radius: 16px;
-        background: var(--accent-soft);
-      }
-
-      .intro p {
-        line-height: 1.8;
-      }
-
-      .feature-post {
-        margin-top: 28px;
-        padding: 22px;
-        border-radius: 18px;
-        border: 1px solid var(--line);
-        background: linear-gradient(135deg, rgba(15, 118, 110, 0.1), rgba(245, 158, 11, 0.08));
-      }
-
-      .feature-post h2 {
-        margin-bottom: 10px;
-        font-size: 24px;
-      }
-
-      .feature-post p {
-        color: var(--muted);
-        line-height: 1.8;
-      }
-
-      .post-meta {
-        margin-top: 8px;
-        font-size: 14px;
-        color: var(--muted);
-      }
-
-      .actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 18px;
-      }
-
-      .button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 11px 16px;
-        border-radius: 12px;
-        border: 1px solid var(--line);
-        background: #ffffff;
-        color: var(--ink);
-        text-decoration: none;
-        font-weight: 600;
-      }
-
-      .button.primary {
-        background: var(--accent);
-        border-color: var(--accent);
-        color: #ffffff;
-      }
-
-      .button:hover {
-        transform: translateY(-1px);
-      }
-
-      .footer {
-        margin-top: 28px;
-        padding-top: 18px;
-        border-top: 1px solid var(--line);
-        color: var(--muted);
-        font-size: 14px;
-      }
-
-      @media (max-width: 720px) {
-        .page {
-          padding: 18px;
-          margin: 16px auto;
-        }
-
-        .hero,
-        .grid {
-          grid-template-columns: 1fr;
-        }
-
-        .avatar {
-          width: 96px;
-          font-size: 32px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <main class="page">
-      <nav class="nav">
-        <a href="#about">关于我</a>
-        <a href="#learning">学习中</a>
-        <a href="#blog">博客</a>
-        <a href="#projects">项目</a>
-        <a href="#contact">联系我</a>
-      </nav>
-
-      <section class="hero" id="top">
-        <div class="avatar">HY</div>
-        <div>
-          <h1>Hello, I'm Hyanvie</h1>
-          <p class="subtitle">CS Student | Sophomore | Learning Java and Building Step by Step</p>
-        </div>
-      </section>
-
-      <section class="intro">
-        <p>
-          你好，我是一名计算机相关专业的大二学生，主学习语言是 Java。
-          这是我的第一个 GitHub 项目，我会在这里介绍自己，记录学习过程，并逐步上传练习代码和小项目。
-        </p>
-      </section>
-
-      <p class="section-title" id="blog">Latest Post</p>
-      <section class="feature-post">
-        <h2>Java JDK 选型与 JDK 8、JDK 17 的区别</h2>
-        <p>
-          这是我目前整理的第一篇 Java 学习笔记，主要记录 JDK 是什么、为什么会有多个版本、
-          JDK 8 和 JDK 17 的主要区别，以及在学习阶段应该怎样做版本选择。
-        </p>
-        <p class="post-meta">分类：Java / 基础 | 状态：已发布</p>
-        <div class="actions">
-          <a class="button primary" href="./blog/java-jdk-selection.html">阅读全文</a>
-          <a class="button" href="./notes/java-jdk.md">查看 Markdown 原稿</a>
-        </div>
-      </section>
-
-      <section class="grid">
-        <article class="panel" id="about">
-          <h2>About Me</h2>
-          <ul>
-            <li>学校/专业：计算机相关专业在读</li>
-            <li>年级：大二</li>
-            <li>主学习语言：Java</li>
-            <li>兴趣方向：后端开发 / AI / 算法基础</li>
-            <li>目标：持续学习，持续输出，慢慢做出自己的作品</li>
-          </ul>
-        </article>
-
-        <article class="panel" id="learning">
-          <h2>Learning Now</h2>
-          <ul>
-            <li>Java</li>
-            <li>Data Structure</li>
-            <li>Algorithm</li>
-            <li>Git & GitHub</li>
-            <li>Python</li>
-          </ul>
-        </article>
-
-        <article class="panel" id="projects">
-          <h2>Projects</h2>
-          <ul>
-            <li>Java 课程项目：待更新</li>
-            <li>数据结构练习：待更新</li>
-            <li>小型网页练习：待更新</li>
-            <li>以后会链接到其他独立仓库</li>
-          </ul>
-        </article>
-
-        <article class="panel" id="contact">
-          <h2>Contact</h2>
-          <ul>
-            <li>GitHub：Hyanvie</li>
-            <li>Email：hyanvie@163.com</li>
-            <li>Email：hyanvie@gmail.com</li>
-            <li>Motto：Keep learning, keep building.</li>
-          </ul>
-        </article>
-      </section>
-
-      <footer class="footer">
-        My first GitHub repository. More updates are coming soon.
-      </footer>
-    </main>
-  </body>
-</html>
+  <article class="card" id="contact">
+    <h2>Contact</h2>
+    <ul>
+      <li>GitHub：Hyanvie</li>
+      <li>Email：hyanvie@163.com</li>
+      <li>Email：hyanvie@gmail.com</li>
+      <li>Motto：Keep learning, keep building.</li>
+    </ul>
+  </article>
+</section>
