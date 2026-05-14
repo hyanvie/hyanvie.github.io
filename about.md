@@ -37,6 +37,16 @@ permalink: /about/
   </div>
 
   <div class="page-block">
+    <h2>游戏偏好</h2>
+    <ul>
+      <li>喜欢玩《王者荣耀》，偏爱法师位</li>
+      <li>最喜欢的英雄：小乔、西施、甄姬</li>
+      <li>今日段位：荣耀王者 53 星</li>
+      <li>游戏之外继续学习，游戏之内也认真打配合</li>
+    </ul>
+  </div>
+
+  <div class="page-block">
     <h2>这个站点会放什么</h2>
     <ul>
       <li>学习笔记</li>

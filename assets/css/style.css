@@ -302,6 +302,77 @@ a {
   text-align: right;
 }
 
+.game-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.42fr);
+  gap: 16px;
+  align-items: stretch;
+  margin-top: 18px;
+  padding: 22px;
+  border: 1px solid rgba(109, 93, 252, 0.2);
+  border-radius: 20px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.72)),
+    linear-gradient(135deg, rgba(109, 93, 252, 0.16), rgba(255, 92, 154, 0.12));
+}
+
+.game-copy h2 {
+  margin: 0 0 12px;
+  font-size: 26px;
+}
+
+.game-copy p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.rank-card {
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  min-height: 128px;
+  padding: 20px;
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(28, 27, 36, 0.95), rgba(92, 55, 142, 0.9)),
+    linear-gradient(135deg, var(--accent-cool), var(--accent-pop));
+  color: #ffffff;
+}
+
+.rank-card span {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.rank-card strong {
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.hero-chips {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hero-chips span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 92, 154, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #71325a;
+  font-size: 14px;
+  font-weight: 800;
+}
+
 .intro p,
 .post-summary p,
 .card p,
@@ -524,6 +595,7 @@ code {
 
   .hero,
   .dashboard,
+  .game-panel,
   .grid {
     grid-template-columns: 1fr;
   }
